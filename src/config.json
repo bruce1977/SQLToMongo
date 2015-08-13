@@ -7,7 +7,7 @@
       "pwd":"",
       "database":"dbname",
       "provider":"mssql"
-    }，
+    },
     "target":{
       "host":"xxx.xxx.xxx.xxx",
       "port":27017,
