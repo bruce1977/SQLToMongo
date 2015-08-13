@@ -15,5 +15,23 @@
       "pwd":"",
       "database":"dbname"
     }
-  }
+  },
+  "tables"[
+    {
+      "source":"table1",
+      "target":"collection1"
+    },
+    {
+      "source":"table2",
+      "target":"collection2",
+      "mappings":[
+        {
+          "name":"sql-table-col",
+          "desc":"description for this mapping",
+          "target":"mongo-document-col",
+          "translation":"[sql-table-col]"
+        }
+      ]
+    }
+  ]
 }
