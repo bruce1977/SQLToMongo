@@ -1,2 +1,19 @@
-[{"sqlServer":"10.10.73.208:4399","sqlUser":"sa","sqlPWD":"123456","sqlDB":"PSPMS_Dev"},
-  {"mgPath":"127.0.0.1", "mgPort":27017, "mgDB":"test", "mgCollection":"Company"}]
+{
+  "server":{
+    "source":{
+      "host":"xxx.xxx.xxx.xxx",
+      "port":4399,
+      "username":"",
+      "pwd":"",
+      "database":"dbname",
+      "provider":"mssql"
+    }，
+    "target":{
+      "host":"xxx.xxx.xxx.xxx",
+      "port":27017,
+      "username":"",
+      "pwd":"",
+      "database":"dbname"
+    }
+  }
+}
