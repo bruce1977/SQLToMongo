@@ -1,0 +1,2 @@
+[{"sqlServer":"10.10.73.208:4399","sqlUser":"sa","sqlPWD":"123456","sqlDB":"PSPMS_Dev"},
+  {"mgPath":"127.0.0.1", "mgPort":27017, "mgDB":"test", "mgCollection":"Company"}]
