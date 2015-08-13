@@ -16,7 +16,7 @@
       "database":"dbname"
     }
   },
-  "tables"[
+  "tables":[
     {
       "source":"table1",
       "target":"collection1"
