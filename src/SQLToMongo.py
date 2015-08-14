@@ -96,7 +96,6 @@ class MongoServer:
         i1 = 0
         db = self.conn[mgDB]
         collect = db[mgCollection]
-        collect.create_index(r[0])
         cursor.execute('select' 'from '+sqlTable)
         for row in cursor:
             i = 0
