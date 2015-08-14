@@ -48,7 +48,7 @@ class MongoServer:
         print(self.conn.server_info())
         print('Mongo Connected')
 
-    def TransFromSQL(self,collection,sqlcon,table,mgcollection):
+    def TransFromSQL(self,sqlcon,table,mgcollection):
         mgPath = self.host
         mgPort = str(self.port)
         mgDB = self.database
@@ -81,35 +81,6 @@ class MongoServer:
                 print('Insert Failed')
             print(rowDone)
 
-    def TransFromSQL2(self,collection,sqlcon,table,mgcollection,SQLcolumn,MGcolumn):
-        mgPath = self.host
-        mgPort = str(self.port)
-        mgDB = self.database
-        mgUser = self.username
-        mgPWD = self.pwd
-        sqlTable = table
-        mgCollection = mgcollection
-        column = MGcolumn
-        self.MongoClear(mgDB,mgCollection,self.conn)
-        cursor = sqlcon.cursor()
-        SQLcolumn = {}
-        i1 = 0
-        db = self.conn[mgDB]
-        collect = db[mgCollection]
-        cursor.execute('select' 'from '+sqlTable)
-        for row in cursor:
-            i = 0
-            rowDone = {}
-            for things in row:
-                rowDone[column[i]] = things
-                i = i+1
-            try:
-                self.MongoInsert(rowDone,self.conn,mgDB,mgCollection)
-            except:
-                print('Insert Failed')
-            print(rowDone)
-
-
     def MongoInsert(self,row,conn,database,collection):
         db = conn[database]
         #print(conn.database_names())
@@ -129,5 +100,6 @@ decodejson = json.loads(ConfigString)
 sql = SQLServer(**decodejson['server']['source'])
 mg = MongoServer(**decodejson['server']['target'])
 s = decodejson['tables'][0]['source']
-mg.TransFromSQL('Company',sql.con,decodejson['tables'][0]['source'],decodejson['tables'][0]['target'])
+for i in decodejson['tables']:
+    mg.TransFromSQL(sql.con,decodejson['tables'][i]['source'],decodejson['tables'][i]['target'])
 
